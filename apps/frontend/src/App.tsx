@@ -1,26 +1,36 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom'
 import './App.css'
-import RootPage from './pages/RootPage'
+import IndexPage from './pages/IndexPage'
 import PurchaseFrequencyPage from './pages/PurchaseFrequency'
 import CustomerListPage from './pages/CustomerList'
 import CustomerDetailPage from './pages/CustomerDetail'
+import { PATH } from './constants/routes'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 function App() {
+  const queryClient = new QueryClient()
   const router = createBrowserRouter([
     {
-      path: '/',
-      element: <RootPage />,
+      element: (
+        <QueryClientProvider client={queryClient}>
+          <Outlet />
+        </QueryClientProvider>
+      ),
       children: [
         {
-          path: '/purchase-frequency',
+          path: PATH.INDEX,
+          element: <IndexPage />,
+        },
+        {
+          path: PATH.PURCHASE_FREQUENCY,
           element: <PurchaseFrequencyPage />,
         },
         {
-          path: '/customers',
+          path: PATH.CUSTOMER_LIST,
           element: <CustomerListPage />,
         },
         {
-          path: '/customers/:id',
+          path: PATH.CUSTOMER_DETAIL,
           element: <CustomerDetailPage />,
         },
       ],
