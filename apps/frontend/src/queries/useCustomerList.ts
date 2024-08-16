@@ -6,6 +6,7 @@ const useCustomerList = (params?: ICustomerListParams) => {
   return useQuery({
     queryKey: ['customers', params?.name, params?.sortBy],
     queryFn: () => fetcher.get<ICustomerListResponse>(`/api/customers`, params),
+    refetchOnWindowFocus: false,
   })
 }
 

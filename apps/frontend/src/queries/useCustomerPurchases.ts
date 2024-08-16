@@ -6,6 +6,7 @@ const useCustomerPurchases = (id: string) => {
   return useQuery({
     queryKey: ['customers', id, 'purchases'],
     queryFn: () => fetcher.get<ICustomerPurchasesResponse>(`/api/customers/${id}/purchases`),
+    refetchOnWindowFocus: false,
   })
 }
 
