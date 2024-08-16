@@ -14,27 +14,12 @@ const Link = styled(_Link)`
   padding: 8px 0;
 `
 
-const Id = styled.div`
-  width: 25%;
-`
-
-const Name = styled.div`
-  width: 25%;
-`
-
-const Count = styled.div`
-  width: 25%;
-`
-
-const TotalAmount = styled.div`
+const Column = styled.div`
   width: 25%;
 `
 
 export default {
   Item,
   Link,
-  Id,
-  Name,
-  Count,
-  TotalAmount,
+  Column,
 }

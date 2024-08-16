@@ -7,10 +7,10 @@ const CustomerListItem = ({ id, name, count, totalAmount }: CustomerListItemProp
   return (
     <Styled.Item>
       <Styled.Link to={`/customers/${id}`}>
-        <Styled.Id>{id}</Styled.Id>
-        <Styled.Name>{name}</Styled.Name>
-        <Styled.Count>{count}</Styled.Count>
-        <Styled.TotalAmount>{totalAmount.toLocaleString()} 원</Styled.TotalAmount>
+        <Styled.Column>{id}</Styled.Column>
+        <Styled.Column>{name}</Styled.Column>
+        <Styled.Column>{count}</Styled.Column>
+        <Styled.Column>{totalAmount.toLocaleString()}원</Styled.Column>
       </Styled.Link>
     </Styled.Item>
   )

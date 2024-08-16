@@ -3,12 +3,11 @@ import styled from '@emotion/styled'
 const Container = styled.main`
   width: 1280px;
   margin: 0 auto;
+  text-align: center;
 `
 
 const List = styled.ul`
   width: 100%;
-  list-style: none;
-  padding: 0;
 `
 
 const ListHeader = styled.div`

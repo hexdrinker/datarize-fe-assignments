@@ -19,8 +19,8 @@ const PurchaseFrequencyPage = () => {
   const from = searchParams.get('from')
   const to = searchParams.get('to')
   const [params, setParams] = useState<IPurchaseFrequencyParams>({
-    from: from ?? '',
-    to: to ?? '',
+    from: from ?? '2024-07-01',
+    to: to ?? '2024-07-31',
   })
   const { data, isLoading, error, refetch } = usePurchaseFrequency(params)
 
@@ -42,8 +42,8 @@ const PurchaseFrequencyPage = () => {
 
   useEffect(() => {
     setParams({
-      from: from ?? '',
-      to: to ?? '',
+      from: from ?? '2024-07-01',
+      to: to ?? '2024-07-31',
     })
   }, [from, to])
 
