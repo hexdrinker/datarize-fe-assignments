@@ -1,14 +1,17 @@
 import { useEffect, useState } from 'react'
-import { usePurchaseFrequency } from '../../queries'
-import Styled from './PurchaseFrequency.styles'
-import ErrorView from '../../components/ErrorView'
-import Global from '../../global.styles'
-import { IPurchaseFrequencyParams } from '../../types'
-import { DateRange, DayPicker } from 'react-day-picker'
-import 'react-day-picker/style.css'
-import { format } from 'date-fns'
 import { useNavigate, useSearchParams } from 'react-router-dom'
+import { DateRange, DayPicker } from 'react-day-picker'
+import { format } from 'date-fns'
+
+import { usePurchaseFrequency } from '../../queries'
+import { IPurchaseFrequencyParams } from '../../types'
 import { PATH } from '../../constants/routes'
+import ErrorView from '../../components/ErrorView'
+
+import Styled from './PurchaseFrequency.styles'
+import Global from '../../global.styles'
+import 'react-day-picker/style.css'
+import Chart from '../../components/Chart'
 
 const PurchaseFrequencyPage = () => {
   const navigate = useNavigate()
@@ -23,7 +26,6 @@ const PurchaseFrequencyPage = () => {
 
   const onSelect = (selected: DateRange) => {
     const { from, to } = selected
-    console.log(from, to)
     const formattedFrom = format(from as Date, 'yyyy-MM-dd')
     const formattedTo = format(to as Date, 'yyyy-MM-dd')
     setParams({
@@ -61,7 +63,11 @@ const PurchaseFrequencyPage = () => {
         }}
       />
       {isLoading && <Global.LoadingSpinner />}
-      {data && <></>}
+      {data && (
+        <Styled.ChartContainer>
+          <Chart data={data} />
+        </Styled.ChartContainer>
+      )}
     </Styled.Container>
   )
 }
