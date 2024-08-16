@@ -24,3 +24,15 @@ export interface ICustomerPurchaseItem {
 }
 
 export type ICustomerPurchasesResponse = ICustomerPurchaseItem[]
+
+export interface IPurchaseFrequencyParams {
+  from?: string
+  to?: string
+}
+
+export interface IPurchaseFrequencyListItem {
+  range: string
+  count: number
+}
+
+export type IPurchaseFrequencyResponse = IPurchaseFrequencyListItem[]
