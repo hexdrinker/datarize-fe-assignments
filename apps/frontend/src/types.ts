@@ -14,3 +14,13 @@ export interface ICustomerListParams {
   name?: string
   sortBy?: '' | 'asc' | 'desc'
 }
+
+export interface ICustomerPurchaseItem {
+  date: string
+  quantity: number
+  product: string
+  price: number
+  imgSrc: string
+}
+
+export type ICustomerPurchasesResponse = ICustomerPurchaseItem[]
