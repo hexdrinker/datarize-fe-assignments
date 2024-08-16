@@ -6,9 +6,9 @@ const defaultAxiosConfig: AxiosRequestConfig = {
 }
 
 export const fetcher = {
-  get: async <T>(pathname: string, params?: any) => {
+  /* typescript-eslint-disable no-implicit-any */
+  get: async <T, P>(pathname: string, params?: P) => {
     const axiosConfig = { ...defaultAxiosConfig, ...{ params }, ...defaultAxiosConfig }
-    console.log(axiosConfig)
     const { data } = await axios.get<T>(pathname, axiosConfig)
     return data
   },
