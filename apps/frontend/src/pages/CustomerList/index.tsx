@@ -7,6 +7,8 @@ import { ICustomerListParams, SORTBY, SortByType } from '../../types'
 import { PATH } from '../../constants/routes'
 
 import CustomerListItem from '../../components/CustomerListItem'
+import ErrorView from '../../components/ErrorView'
+import Global from '../../global.styles'
 import Styled from './CustomerListPage.styles'
 
 const listHeaderItemsLabel = ['ID', '이름', '총 구매 횟수', '총 구매 금액']
@@ -62,10 +64,7 @@ const CustomerListPage = () => {
   return (
     <Styled.Container>
       {error ? (
-        <Styled.Wrapper>
-          에러가 발생했습니다.
-          <Styled.RefreshButton onClick={refresh}>새로고침</Styled.RefreshButton>
-        </Styled.Wrapper>
+        <ErrorView onRefresh={refresh} />
       ) : (
         <>
           {!isLoading && (
@@ -91,7 +90,7 @@ const CustomerListPage = () => {
           </Styled.ListHeader>
           {isLoading && (
             <Styled.Wrapper>
-              <Styled.LoadingSpinner />
+              <Global.LoadingSpinner />
             </Styled.Wrapper>
           )}
           {customers && (
