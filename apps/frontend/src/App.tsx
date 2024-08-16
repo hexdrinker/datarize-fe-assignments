@@ -1,5 +1,4 @@
 import { createBrowserRouter, Outlet, RouterProvider } from 'react-router-dom'
-import './App.css'
 import IndexPage from './pages/IndexPage'
 import PurchaseFrequencyPage from './pages/PurchaseFrequency'
 import CustomerListPage from './pages/CustomerList'
