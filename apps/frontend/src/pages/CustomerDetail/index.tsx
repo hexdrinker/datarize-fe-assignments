@@ -17,7 +17,7 @@ const CustomerDetailPage = () => {
 
   return (
     <Styled.Container>
-      {error && <ErrorView onRefresh={refresh} />}
+      {error && <ErrorView onRefresh={refresh} message={error.message} />}
       {isLoading && <Global.LoadingSpinner />}
       {purchases && (
         <Styled.List>

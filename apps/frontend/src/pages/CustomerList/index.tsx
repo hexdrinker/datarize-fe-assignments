@@ -64,7 +64,7 @@ const CustomerListPage = () => {
   return (
     <Styled.Container>
       {error ? (
-        <ErrorView onRefresh={refresh} />
+        <ErrorView onRefresh={refresh} message={error.message} />
       ) : (
         <>
           {!isLoading && (
